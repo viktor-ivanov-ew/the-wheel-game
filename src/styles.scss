@@ -1,1 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+	box-sizing: 'border-box';
+    margin: 0;
+    padding: 0;
+}
+html {
+    -webkit-font-smoothing: 'antialiased';
+    -moz-osx-font-smoothing: 'grayscale';
+    height: fit-content;
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+body {
+    background-color: '#f4f6f8';
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+a {
+    text-decoration: none
+}
+#root {
+    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
+    max-height: 100vh;
+    max-width: 100vw;
+    background: url("./assets/background.jpg")
+}

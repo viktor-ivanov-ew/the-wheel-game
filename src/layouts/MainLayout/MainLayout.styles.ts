@@ -1,28 +1,15 @@
-import theme from "src/theme/theme";
 
 export const mainLayoutStyles = {
 	root: {
-		backgroundColor: theme.palette.background.paper,
 		display: "flex",
-		height: "100%",
+		height: "100vh",
 		overflow: "hidden",
-		width: "100%"
-	},
-	wrapper: {
-		display: "flex",
-		flex: "1 1 auto",
-		overflow: "hidden",
-	},
-	container: {
-		display: "flex",
-		flex: "1 1 auto",
-		overflow: "hidden"
-	},
-	content: {
-		backgroundColor: theme.palette.background.default,
-		flex: "1 1 auto",
-		height: "100%",
-		overflow: "auto",
-		paddingTop: "64px"
-	},
+		width: "100%",
+		maxWidth: "1000px",
+		position: "absolute",
+		left: "50%",
+		top: "0vh",
+		transform: "translate(-50%, 0)",
+		background: "rgba(143, 176, 175, 0.5)"
+	}
 };

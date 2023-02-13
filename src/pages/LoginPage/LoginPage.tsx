@@ -1,8 +1,5 @@
+import { Login } from "src/containters";
 
-export const LoginPage = () => {
-	return (
-		<div>LoginPage</div>
-	);
-};
+export const LoginPage = () => <Login />;
 
 export default LoginPage;

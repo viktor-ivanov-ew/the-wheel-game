@@ -1,3 +1,6 @@
 {
-
+	"schemaValidEmail": "Must be a valid email",
+	"schemaRequiredEmail": "Email is required",
+	"schemaRequiredPassword": "Password is required",
+	"schemaRequiredConfirmPassword": "Confirm password is required"
 }
