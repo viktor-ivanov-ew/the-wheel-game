@@ -12,14 +12,6 @@ import messagesEn from "../../i18n/en.json";
 export const AppIntlProvider: FC<PropsWithChildren<Record<string, unknown>>> = ({
 	children
 }) => {
-	const formats: CustomFormats = {
-		number: {
-			CURRENCY: {
-				style: "currency",
-				currency: "BRL", // default currency
-			},
-		},
-	};
 
 	const locale = navigator.language;
 
@@ -37,8 +29,8 @@ export const AppIntlProvider: FC<PropsWithChildren<Record<string, unknown>>> = (
 		<IntlProvider
 			locale={locale}
 			messages={messages[locale] ?? messages["en"]}
-			formats={formats}
 			defaultLocale="en"
+			onError={() => null}
 		>
 			<>
 				{children}

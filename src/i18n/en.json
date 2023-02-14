@@ -1,6 +1,19 @@
 {
+	"loginFormSubmitButtonText": "Log in",
+	"registerFormSubmitButtonText": "Sign up",
+	"googleLoginButton": "Sign in with Google",
+
+	"emailFieldLabel": "Email",
+	"passwordFieldLabel": "Password",
+	"confirmPasswordFieldLabel": "Confirm Password",
 	"schemaValidEmail": "Must be a valid email",
 	"schemaRequiredEmail": "Email is required",
 	"schemaRequiredPassword": "Password is required",
-	"schemaRequiredConfirmPassword": "Confirm password is required"
+	"schemaRequiredConfirmPassword": "Confirm password is required",
+	"schemaMatchConfirmPassword": "Passwords must match",
+
+	"loginPageTitle": "Log in your account",
+	"registerPageTitle": "Create a new account",
+	"registerAccountLink": "Or register new account",
+	"loginAccountLink": "Or log in to your account"
 }

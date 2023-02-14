@@ -1,7 +1,8 @@
+import { Register } from "src/containters";
 
 export const RegisterPage = () => {
 	return (
-		<div>Register</div>
+		<Register/>
 	);
 };
 

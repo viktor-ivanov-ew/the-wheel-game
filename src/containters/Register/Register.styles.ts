@@ -1,4 +1,4 @@
-export const loginStyles = {
+export const registerStyles = {
 	root: {
 		display: "flex",
 		flexDirection: "column",
