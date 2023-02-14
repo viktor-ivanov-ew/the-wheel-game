@@ -14,6 +14,11 @@ const theme = createTheme({
 	},
 	typography: {
 		fontFamily: "Hind",
+		h2: {
+			fontSize: "calc(1vmin + 15px)",
+			textAlign: "center",
+			color: "#F2994A",
+		},
 		h3: {
 			fontSize: "calc(2.2vmin + 25px)",
 			textAlign: "center"
@@ -59,6 +64,13 @@ theme.components = {
 				"&.Mui-focused": {
 					color: theme.palette.secondary.dark
 				}
+			}
+		}
+	},
+	"MuiAppBar": {
+		styleOverrides: {
+			root: {
+				backgroundColor: theme.palette.secondary.main
 			}
 		}
 	}

@@ -15,5 +15,9 @@
 	"loginPageTitle": "Log in your account",
 	"registerPageTitle": "Create a new account",
 	"registerAccountLink": "Or register new account",
-	"loginAccountLink": "Or log in to your account"
+	"loginAccountLink": "Or log in to your account",
+
+	"headerHistoryLink": "History",
+	"headerSpinLink": "Game",
+	"headerCopyright": "Powered by Extrawest"
 }
