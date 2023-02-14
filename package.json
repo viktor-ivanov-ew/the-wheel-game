@@ -58,6 +58,7 @@
     "react-firebase-hooks": "^5.1.1",
     "react-intl": "^6.2.8",
     "react-router-dom": "^6.8.1",
+    "vite-plugin-fonts": "^0.7.0",
     "yup": "^1.0.0"
   }
 }

@@ -21,5 +21,8 @@
 	"headerSpinLink": "Game",
 	"headerCopyright": "Powered by Extrawest",
 
-	"historyPageTitle": "Game History"
+	"historyPageTitle": "Game History",
+
+	"spinPageTitle": "Fortune Wheel",
+	"spinButtonTitle": "Spin!"
 }
