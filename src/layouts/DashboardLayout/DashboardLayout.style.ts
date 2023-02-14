@@ -3,13 +3,13 @@ import { Theme, alpha } from "@mui/material";
 export const dashboardLayoutStyles = {
 	root: {
 		display: "flex",
-		height: "100vh",
+		height: "calc(100vh - 80px)",
 		overflow: "hidden",
 		width: "100%",
 		maxWidth: "1000px",
 		position: "absolute",
 		left: "50%",
-		top: "0vh",
+		top: "80px",
 		transform: "translate(-50%, 0)",
 		background: (theme: Theme) => alpha(
 			theme.palette.secondary.light,
@@ -28,7 +28,8 @@ export const dashboardLayoutStyles = {
 		width: "100%",
 		justifyContent: "space-between",
 		alignItems: "center",
-		padding: "10px 20px"
+		padding: "10px 20px",
+		height: "80px"
 	},
 	linksWrapper: {
 		display: "flex",

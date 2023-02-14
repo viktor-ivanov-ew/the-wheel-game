@@ -19,5 +19,7 @@
 
 	"headerHistoryLink": "History",
 	"headerSpinLink": "Game",
-	"headerCopyright": "Powered by Extrawest"
+	"headerCopyright": "Powered by Extrawest",
+
+	"historyPageTitle": "Game History"
 }

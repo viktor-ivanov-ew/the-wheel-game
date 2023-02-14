@@ -3,6 +3,5 @@ export enum AppRouteEnum {
 	HISTORY = "/",
 	LOGIN = "/login",
 	REGISTER = "/register",
-	NOT_FOUND = "404",
 	ANY = "*"
 }

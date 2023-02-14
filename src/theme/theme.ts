@@ -70,7 +70,9 @@ theme.components = {
 	"MuiAppBar": {
 		styleOverrides: {
 			root: {
-				backgroundColor: theme.palette.secondary.main
+				backgroundColor: theme.palette.secondary.main,
+				minHeight: "80px",
+				height: "80px"
 			}
 		}
 	}
