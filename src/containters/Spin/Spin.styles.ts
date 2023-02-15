@@ -8,18 +8,22 @@ export const spinStyles = {
 		alignItems: "center",
 		width: "100%",
 		height: "100%",
-		padding: "40px 0px"
+		padding: "40px 0px",
+		overflowY: "auto",
+		gap: "20px"
 	},
 	ribbon: {
 		backgroundImage: `url(${ribbon})`,
 		width: "100%",
 		maxWidth: "500px",
+		minHeight: "125px",
 		aspectRatio: "4",
 		backgroundPosition: "center",
 		backgroundSize: "100%",
 		display: "flex",
 		justifyContent: "center",
 		alignItems: "center",
+		backgroundRepeat: "no-repeat"
 	},
 	ribbonText: {
 		textTransform: "uppercase",
