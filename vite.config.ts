@@ -25,7 +25,10 @@ export default defineConfig({
 		}),
 		VitePluginFonts({
 			google: {
-				families: ["Holtwood One SC"]
+				families: [
+					"Holtwood One SC",
+					"Gluten"
+				]
 			}
 		})
 	],
