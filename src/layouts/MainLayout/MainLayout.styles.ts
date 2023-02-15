@@ -1,3 +1,4 @@
+import { Theme, alpha } from "@mui/material";
 
 export const mainLayoutStyles = {
 	root: {
@@ -10,6 +11,10 @@ export const mainLayoutStyles = {
 		left: "50%",
 		top: "0vh",
 		transform: "translate(-50%, 0)",
-		background: "rgba(143, 176, 175, 0.5)"
+		background: (theme: Theme) => alpha(
+			theme.palette.secondary.light,
+			0.9
+		), justifyContent: "center",
+		alignItems: "center"
 	}
 };

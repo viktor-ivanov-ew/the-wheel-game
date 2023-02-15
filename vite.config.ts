@@ -2,6 +2,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import viteTsConfigPaths from "vite-tsconfig-paths";
+import { VitePluginFonts } from "vite-plugin-fonts";
 
 export default defineConfig({
 	cacheDir: "./node_modules/.vite/the-wheel-game",
@@ -22,6 +23,11 @@ export default defineConfig({
 		viteTsConfigPaths({
 			root: "./",
 		}),
+		VitePluginFonts({
+			google: {
+				families: ["Holtwood One SC"]
+			}
+		})
 	],
 
 	// Uncomment this if you are using workers.

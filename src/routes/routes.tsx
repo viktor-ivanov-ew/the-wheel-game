@@ -5,7 +5,6 @@ import { AppRouteEnum, RouteType } from "src/types";
 const HistoryPage = lazy(() => import("../pages/HistoryPage/HistoryPage"));
 const SpinPage = lazy(() => import("../pages/SpinPage/SpinPage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
-const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
 
 export const routes: Array<RouteType> = [
@@ -30,12 +29,7 @@ export const routes: Array<RouteType> = [
 		isAuth: false
 	},
 	{
-		element: <NotFoundPage/>,
-		path: AppRouteEnum.NOT_FOUND,
-		denyShowLoginPage: false
-	},
-	{
-		element: <Navigate to={AppRouteEnum.NOT_FOUND} />,
+		element: <Navigate to={AppRouteEnum.HISTORY} />,
 		path: AppRouteEnum.ANY,
 		denyShowLoginPage: false
 	},

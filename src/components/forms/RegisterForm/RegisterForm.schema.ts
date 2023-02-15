@@ -1,4 +1,4 @@
-import { object, string } from "yup";
+import { object, ref, string } from "yup";
 
 export const registerSchema = object().shape({
 	email: string()
@@ -10,5 +10,6 @@ export const registerSchema = object().shape({
 		.required("schemaRequiredPassword"),
 	confirmPassword: string()
 		.max(255)
-		.required("schemaRequiredConfirmPassword"),
+		.required("schemaRequiredConfirmPassword")
+		.oneOf([ref("password")], "schemaMatchConfirmPassword"),
 });
