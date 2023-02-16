@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useIntl } from "react-intl";
-import { Box, Button, Modal, Typography } from "@mui/material";
+import { Box, Button, Modal, Typography, CircularProgress } from "@mui/material";
 import Lottie from "react-lottie";
 import { WheelItemIcon } from "src/components/common";
 import { WinModalProps } from "./WinModal.types";
@@ -16,6 +16,7 @@ export const WinModal: FC<WinModalProps> = ({
 	prize,
 	multiplier,
 	animationIndex,
+	isPublishing,
 	onClose,
 	...rest
 }) => {
@@ -77,7 +78,11 @@ export const WinModal: FC<WinModalProps> = ({
 						<Typography
 							sx={winModalStyles.buttonText}
 						>
-							{intl.formatMessage({ id: "winModalSubminButtonTitle" })}
+							{
+								!isPublishing ?
+									intl.formatMessage({ id: "winModalSubminButtonTitle" }) :
+									<CircularProgress sx={{ maxWidth: "20px", maxHeight: "20px" }} />
+							}
 						</Typography>
 					</Button>
 				</Box>

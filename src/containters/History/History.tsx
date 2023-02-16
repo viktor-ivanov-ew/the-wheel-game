@@ -1,69 +1,22 @@
 import { Fragment } from "react";
 import { Box, Typography } from "@mui/material";
 import { useIntl } from "react-intl";
+import { doc } from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useDocumentData } from "react-firebase-hooks/firestore";
 import { PrizeType } from "src/types";
-import { historyStyles } from "./History.styles";
+import { firebaseAuth, firebaseFirestore } from "src/firebase";
 import HistoryListItem from "./HistoryListItem/HistoryListItem";
+import { historyStyles } from "./History.styles";
+import { getWinModalSubtitle } from "src/components/modal/WinModal/WinModal.utils";
 
 export const History = () => {
 	const intl = useIntl();
+	const [user, loadingUser, errorUser] = useAuthState(firebaseAuth);
 
-	const mockArray = [
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		},
-		{
-			prize: PrizeType.HEALTH,
-			multiplier: 4,
-			prizeTitle: "Free lifes",
-			date: "just now"
-		}
-	];
+	const [userData, loadingUserData, errorUserData] = useDocumentData(
+		doc(firebaseFirestore, "gameHistory", `${user?.uid}` ?? "")
+	);
 
 	return (
 		<Box
@@ -79,9 +32,14 @@ export const History = () => {
 			<Box
 				sx={historyStyles.gamesList}
 			>
-				{mockArray.map((item, i) => (
+				{(userData as any)?.gameHistory?.reverse().map((item: any, i: number) => (
 					<Fragment key={i}>
-						<HistoryListItem {...item} />
+						<HistoryListItem
+							multiplier={item.multiplier}
+							prize={item.prize}
+							date={item.time}
+							prizeTitle={getWinModalSubtitle(item.prize, intl, item.multiplier)}
+						/>
 					</Fragment>
 				))}
 			</Box>

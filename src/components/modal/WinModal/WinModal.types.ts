@@ -5,5 +5,6 @@ export type WinModalProps = Omit<ModalProps, "children" | "onClose"> & {
 	prize: PrizeType;
 	multiplier?: number;
 	animationIndex: number;
+	isPublishing: boolean;
 	onClose: () => void;
 }
