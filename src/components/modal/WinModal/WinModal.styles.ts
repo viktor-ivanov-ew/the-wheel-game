@@ -43,7 +43,7 @@ export const winModalStyles = {
 		"WebkitTextStroke": "1.5px #712F00"
 	},
 	icon: {
-		width: "60%",
+		width: "30%",
 		transform: "rotateZ(90deg)"
 	},
 	button: {

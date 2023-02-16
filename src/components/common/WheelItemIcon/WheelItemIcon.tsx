@@ -8,7 +8,8 @@ import { PrizeType } from "src/types";
 
 export const WheelItemIcon: FC<WheelItemIconProps> = ({
 	type,
-	multiplier
+	multiplier,
+	isModal
 }) => {
 	return (
 		<Box
@@ -32,15 +33,17 @@ export const WheelItemIcon: FC<WheelItemIconProps> = ({
 				sx={[
 					wheelItemIconStyles.icon,
 					type === PrizeType.JACKPOT && {
-						transform: "rotateZ(180deg) translateY(50%) scale(.5)"
+						transform: `rotateZ(180deg) translateY(${isModal ? 0 : 50}%) scale(${.5})`
 					}
 				]}
 				component="img"
 				src={getPrizeIcon(type)}
 			/>
-			{type === PrizeType.JACKPOT && (
+			{type === PrizeType.JACKPOT && !isModal && (
 				<Typography
-					sx={wheelItemIconStyles.jackpotText}
+					sx={[
+						wheelItemIconStyles.jackpotText
+					]}
 				>
 					JACK POT
 				</Typography>

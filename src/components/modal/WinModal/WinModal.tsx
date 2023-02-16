@@ -36,6 +36,7 @@ export const WinModal: FC<WinModalProps> = ({
 					<WheelItemIcon
 						type={prize}
 						multiplier={multiplier}
+						isModal
 					/>
 				</Box>
 				<Typography

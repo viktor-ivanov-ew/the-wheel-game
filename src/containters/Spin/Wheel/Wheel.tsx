@@ -26,9 +26,6 @@ export const Wheel: FC<WheelProps> = ({
 				}
 			]}
 		>
-			{/* <Box
-				sx={wheelStyles.niddle}
-			/> */}
 			<Box
 				sx={wheelStyles.wheel}
 			>
@@ -55,6 +52,19 @@ export const Wheel: FC<WheelProps> = ({
 						</Box>
 					</Box>
 				))}
+			</Box>
+			<Box
+				sx={[
+					wheelStyles.niddleWrapper,
+					{
+						transform: `rotateZ(${-rotationPosition}deg)`,
+						transition: "transform 2s ease-in-out"
+					}
+				]}
+			>
+				<Box
+					sx={wheelStyles.niddle}
+				/>
 			</Box>
 		</Box>
 	);

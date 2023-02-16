@@ -31,7 +31,7 @@
 
 	"winHealthSubtitle": "You got {amount} free lifes!",
 	"winBoosterSubtitle": "You got {amount} free boosters!",
-	"winDiamondSubtitle": "You got {abount} free diamonds!",
+	"winDiamondSubtitle": "You got {amount} free diamonds!",
 	"winJackpotSubtitle": "You won jackpot!",
 	"winMoneySubtitle": "You got {amount} money prizes!"
 }

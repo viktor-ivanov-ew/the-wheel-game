@@ -16,6 +16,13 @@ export const wheelStyles = {
 		boxShadow: "inset 0px 0px 34px 8px rgba(0,0,0,0.75)",
 		overflow: "hidden"
 	},
+	niddleWrapper: {
+		width: "100%",
+		height: "100%",
+		position: "absolute",
+		display: "flex",
+		justifyContent: "center"
+	},
 	niddle: {
 		backgroundImage: `url(${niddle})`,
 		width: "calc(7.7vmin + 33.3px)",
@@ -23,8 +30,7 @@ export const wheelStyles = {
 		backgroundPosition: "center",
 		backgroundSize: "100%",
 		backgroundRepeat: "no-repeat",
-		position: "absolute",
-		transform: "translateY(calc(-17.5vmin - 75px + 40%))",
+		transform: "translateY(calc((-17.5vmin - 75px) / 10))",
 		zIndex: "1"
 	},
 	wheel: {

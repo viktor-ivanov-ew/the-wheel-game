@@ -5,17 +5,22 @@ import Wheel from "./Wheel/Wheel";
 import { spinStyles } from "./Spin.styles";
 import { WinModal } from "src/components";
 import { PrizeType } from "src/types";
+import { getListItemOfDrumSection } from "./Spin.utils";
 
 export const Spin = () => {
 	const intl = useIntl();
 	const [newSpin, setNewSpin] = useState(0);
-	const [isSpinning, setisSpinning] = useState(false);
-	const [isModalOpen, setisModalOpen] = useState(true);
+	const [currentDeg, setCurrentDeg] = useState(0);
+	const [isSpinning, setIsSpinning] = useState(false);
+	const [isModalOpen, setisModalOpen] = useState(false);
+	const [modalGift, setModalGift] = useState<{ type: PrizeType; multiplier?: number; } | null>(null);
 
 	const handleSpin = useCallback(
 		() => {
-			setNewSpin(360 * ((Math.random() * 4) + 2) + (360 / 7) * ((Math.random() * 6) + 1));
-			setisSpinning(true);
+			const newDeg = 360 * ((Math.random() * 4) + 2) + (360 / 7) * ((Math.random() * 6) + 1);
+			setNewSpin(newDeg);
+			setCurrentDeg(prev => prev + newDeg);
+			setIsSpinning(true);
 		},
 		[setNewSpin],
 	);
@@ -38,14 +43,15 @@ export const Spin = () => {
 		let timeout: NodeJS.Timeout;
 		if (!isSpinning) return;
 		timeout = setTimeout(() => {
-			setisSpinning(false);
-		}, 2000);
+			setIsSpinning(false);
+			setModalGift(getListItemOfDrumSection(currentDeg));
+			handleOpenModal();
+		}, 2500);
 
 		return () => {
 			clearTimeout(timeout);
 		};
 	}, [isSpinning]);
-
 
 	return (
 		<>
@@ -64,7 +70,7 @@ export const Spin = () => {
 				<Wheel spinLength={newSpin} />
 				<Button
 					sx={spinStyles.button}
-					onClick={handleOpenModal}
+					onClick={handleSpin}
 					disabled={isSpinning}
 				>
 					<Typography
@@ -74,12 +80,14 @@ export const Spin = () => {
 					</Typography>
 				</Button>
 			</Box>
-			<WinModal
-				open={isModalOpen}
-				onClose={handleCloseModal}
-				prize={PrizeType.HEALTH}
-				multiplier={2}
-			/>
+			{modalGift &&
+				<WinModal
+					open={isModalOpen}
+					onClose={handleCloseModal}
+					prize={modalGift.type}
+					multiplier={modalGift.multiplier}
+				/>
+			}
 		</>
 	);
 };
