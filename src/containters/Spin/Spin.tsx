@@ -13,7 +13,7 @@ export const Spin = () => {
 	const [currentDeg, setCurrentDeg] = useState(0);
 	const [isSpinning, setIsSpinning] = useState(false);
 	const [isModalOpen, setisModalOpen] = useState(false);
-	const [modalGift, setModalGift] = useState<{ type: PrizeType; multiplier?: number; } | null>(null);
+	const [modalGift, setModalGift] = useState<{ type: PrizeType; multiplier?: number; animationIndex: number} | null>(null);
 
 	const handleSpin = useCallback(
 		() => {
@@ -86,6 +86,7 @@ export const Spin = () => {
 					onClose={handleCloseModal}
 					prize={modalGift.type}
 					multiplier={modalGift.multiplier}
+					animationIndex={modalGift.animationIndex}
 				/>
 			}
 		</>

@@ -1,18 +1,31 @@
 import { FC } from "react";
 import { useIntl } from "react-intl";
 import { Box, Button, Modal, Typography } from "@mui/material";
+import Lottie from "react-lottie";
 import { WheelItemIcon } from "src/components/common";
 import { WinModalProps } from "./WinModal.types";
 import { winModalStyles } from "./WinModal.styles";
 import { getWinModalSubtitle } from "./WinModal.utils";
+import confettiFullScreenAnimation from "./WinModalAnimations/confetti-full-screen.json";
+import fallingCoinsAnimations from "./WinModalAnimations/falling-coins.json";
+import goldenConfettiNew from "./WinModalAnimations/golden-confetti-new.json";
+import goldenParticle from "./WinModalAnimations/golden-particle.json";
+
 
 export const WinModal: FC<WinModalProps> = ({
 	prize,
 	multiplier,
+	animationIndex,
 	onClose,
 	...rest
 }) => {
 	const intl = useIntl();
+	const animations = [
+		confettiFullScreenAnimation,
+		fallingCoinsAnimations,
+		goldenConfettiNew,
+		goldenParticle
+	];
 
 	return (
 		<Modal
@@ -22,39 +35,53 @@ export const WinModal: FC<WinModalProps> = ({
 			disableEnforceFocus
 			disableRestoreFocus
 		>
-			<Box
-				sx={winModalStyles.root}
-			>
-				<Typography
-					sx={winModalStyles.title}
-				>
-					{intl.formatMessage({ id: "winModalTitle" })}
-				</Typography>
+			<>
+				<Lottie
+					width={window.screen.width}
+					height={window.screen.height}
+					options={{
+						autoplay: true,
+						loop: true,
+						animationData: animations[animationIndex],
+						rendererSettings: {
+							preserveAspectRatio: "xMidYMid slice"
+						}
+					}}
+				/>
 				<Box
-					sx={winModalStyles.icon}
-				>
-					<WheelItemIcon
-						type={prize}
-						multiplier={multiplier}
-						isModal
-					/>
-				</Box>
-				<Typography
-					sx={winModalStyles.subtitle}
-				>
-					{getWinModalSubtitle(prize, intl, multiplier ?? 0)}
-				</Typography>
-				<Button
-					sx={winModalStyles.button}
-					onClick={onClose}
+					sx={winModalStyles.root}
 				>
 					<Typography
-						sx={winModalStyles.buttonText}
+						sx={winModalStyles.title}
 					>
-						{intl.formatMessage({ id: "winModalSubminButtonTitle" })}
+						{intl.formatMessage({ id: "winModalTitle" })}
 					</Typography>
-				</Button>
-			</Box>
+					<Box
+						sx={winModalStyles.icon}
+					>
+						<WheelItemIcon
+							type={prize}
+							multiplier={multiplier}
+							isModal
+						/>
+					</Box>
+					<Typography
+						sx={winModalStyles.subtitle}
+					>
+						{getWinModalSubtitle(prize, intl, multiplier ?? 0)}
+					</Typography>
+					<Button
+						sx={winModalStyles.button}
+						onClick={onClose}
+					>
+						<Typography
+							sx={winModalStyles.buttonText}
+						>
+							{intl.formatMessage({ id: "winModalSubminButtonTitle" })}
+						</Typography>
+					</Button>
+				</Box>
+			</>
 		</Modal>
 	);
 };
