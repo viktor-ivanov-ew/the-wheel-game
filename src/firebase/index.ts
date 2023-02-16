@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase } from "firebase/database";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
 	apiKey: import.meta.env["NX_API_KEY"],
@@ -13,10 +13,10 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
-const firebaseDatabase = getDatabase(firebaseApp);
+const firebaseFirestore = getFirestore(firebaseApp);
 
 export {
 	firebaseApp,
 	firebaseAuth,
-	firebaseDatabase
+	firebaseFirestore
 };

@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useCallback } from "react";
 import { Box } from "@mui/material";
 import { wheelStyles } from "./Wheel.styles";
 import { drumSections } from "./Wheel.utils";
@@ -14,7 +14,6 @@ export const Wheel: FC<WheelProps> = ({
 	useEffect(() => {
 		setRotationPosition(prev => prev + spinLength);
 	}, [spinLength]);
-
 
 	return (
 		<Box

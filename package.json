@@ -51,6 +51,7 @@
     "@fontsource/hind": "^4.5.10",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.8",
+    "dayjs": "^1.11.7",
     "firebase": "^9.17.1",
     "formik": "^2.2.9",
     "notistack": "^2.0.8",
