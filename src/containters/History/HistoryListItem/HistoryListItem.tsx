@@ -25,7 +25,7 @@ export const HistoryListItem: FC<HistoryListItemProps> = ({
 				<Typography>{prizeTitle}</Typography>
 				<Typography>{date}</Typography>
 			</Box>
-			{multiplier &&
+			{multiplier !== 0 &&
 				<Box
 					sx={[
 						historyListItemStyles.multiplier,

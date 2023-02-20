@@ -24,5 +24,14 @@
 	"historyPageTitle": "Game History",
 
 	"spinPageTitle": "Fortune Wheel",
-	"spinButtonTitle": "Spin!"
+	"spinButtonTitle": "Spin!",
+
+	"winModalTitle": "Congrats!",
+	"winModalSubminButtonTitle": "Ok",
+
+	"winHealthSubtitle": "You got {amount} free lifes!",
+	"winBoosterSubtitle": "You got {amount} free boosters!",
+	"winDiamondSubtitle": "You got {amount} free diamonds!",
+	"winJackpotSubtitle": "You won jackpot!",
+	"winMoneySubtitle": "You got {amount} money prizes!"
 }

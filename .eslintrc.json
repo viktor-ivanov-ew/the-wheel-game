@@ -17,6 +17,9 @@
         "react",
         "@typescript-eslint"
     ],
+    "globals": {
+        "NodeJS": true
+    },
     "rules": {
         "indent": [
             "error",
