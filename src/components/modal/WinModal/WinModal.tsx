@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useIntl } from "react-intl";
-import { Box, Button, Modal, Typography, CircularProgress } from "@mui/material";
 import Lottie from "react-lottie";
+import { Box, Button, Modal, Typography, CircularProgress } from "@mui/material";
 import { WheelItemIcon } from "src/components/common";
 import { WinModalProps } from "./WinModal.types";
 import { winModalStyles } from "./WinModal.styles";
@@ -10,7 +10,6 @@ import confettiFullScreenAnimation from "./WinModalAnimations/confetti-full-scre
 import fallingCoinsAnimations from "./WinModalAnimations/falling-coins.json";
 import goldenConfettiNew from "./WinModalAnimations/golden-confetti-new.json";
 import goldenParticle from "./WinModalAnimations/golden-particle.json";
-
 
 export const WinModal: FC<WinModalProps> = ({
 	prize,
@@ -81,7 +80,7 @@ export const WinModal: FC<WinModalProps> = ({
 							{
 								!isPublishing ?
 									intl.formatMessage({ id: "winModalSubminButtonTitle" }) :
-									<CircularProgress sx={{ maxWidth: "20px", maxHeight: "20px" }} />
+									<CircularProgress sx={winModalStyles.spinner} />
 							}
 						</Typography>
 					</Button>

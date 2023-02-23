@@ -1,13 +1,13 @@
 import { FC, PropsWithChildren } from "react";
 import { useIntl } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
-import { Box, AppBar, Button, Grid, Typography } from "@mui/material";
 import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
+import { Box, AppBar, Button, Typography } from "@mui/material";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { AppRouteEnum } from "src/types";
 import { firebaseAuth } from "src/firebase";
-import { dashboardLayoutStyles } from "./DashboardLayout.style";
 import { useHandleError } from "src/hooks";
+import { dashboardLayoutStyles } from "./DashboardLayout.style";
 
 export const DashboardLayout: FC<PropsWithChildren> = ({
 	children

@@ -1,16 +1,16 @@
 import { FC } from "react";
+import { useIntl } from "react-intl";
 import { Formik } from "formik";
-import { Box, Button, Typography, TextField } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
+import { getFormStructure } from "src/utils";
 import { RegisterFormProps } from "./RegisterForm.types";
 import { registerSchema } from "./RegisterForm.schema";
-import { getFormStructure } from "src/utils";
-import { useIntl } from "react-intl";
 
 export const RegisterForm: FC<RegisterFormProps> = ({
 	onSubmit
 }) => {
 	const intl = useIntl();
-	const { signUpStructure } = getFormStructure(intl);
+	const { signUpStructure } = getFormStructure();
 
 	return (
 		<Formik
@@ -27,7 +27,6 @@ export const RegisterForm: FC<RegisterFormProps> = ({
 				handleBlur,
 				handleChange,
 				handleSubmit,
-				isSubmitting,
 				touched,
 				values
 			}) => (
@@ -47,11 +46,16 @@ export const RegisterForm: FC<RegisterFormProps> = ({
 								value={values[item.name as keyof typeof values]}
 								onBlur={handleBlur}
 								onChange={handleChange}
-								error={touched[item.name as keyof typeof touched] && Boolean(errors[item.name as keyof typeof errors])}
+								error={touched[
+									item.name as keyof typeof touched] &&
+									Boolean(errors[item.name as keyof typeof errors])
+								}
 								helperText={
 									touched[item.name as keyof typeof touched]
 									&& errors[item.name as keyof typeof errors]
-									&& intl.formatMessage({ id: `${errors[item.name as keyof typeof errors]}` })
+									&& intl.formatMessage({
+										id: `${errors[item.name as keyof typeof errors]}`
+									})
 								}
 							/>
 						))}

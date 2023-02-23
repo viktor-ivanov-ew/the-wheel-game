@@ -68,5 +68,6 @@ export const winModalStyles = {
 		backgroundClip: "text",
 		textFillColor: "transparent",
 		"WebkitTextStroke": "1px #467100",
-	}
+	},
+	spinner: { maxWidth: "20px", maxHeight: "20px" }
 };

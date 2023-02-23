@@ -1,9 +1,5 @@
 import { History } from "src/containters";
 
-export const HistoryPage = () => {
-	return (
-		<History/>
-	);
-};
+export const HistoryPage = () => <History/>;
 
 export default HistoryPage;

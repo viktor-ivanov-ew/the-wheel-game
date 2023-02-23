@@ -1,9 +1,5 @@
 import { Spin } from "src/containters";
 
-export const SpinPage = () => {
-	return (
-		<Spin/>
-	);
-};
+export const SpinPage = () => <Spin/>;
 
 export default SpinPage;

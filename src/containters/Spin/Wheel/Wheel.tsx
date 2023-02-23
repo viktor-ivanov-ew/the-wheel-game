@@ -1,4 +1,4 @@
-import { FC, useState, useEffect, useCallback } from "react";
+import { FC, useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import { wheelStyles } from "./Wheel.styles";
 import { drumSections } from "./Wheel.utils";
@@ -26,13 +26,15 @@ export const Wheel: FC<WheelProps> = ({
 			<Box
 				sx={wheelStyles.wheel}
 			>
-				{drumSections.map((item, i) => (
+				{drumSections.map((item, index) => (
 					<Box
-						key={i}
+						key={index}
 						sx={[
 							wheelStyles.drumSection,
 							{
-								transform: `translate(-5%, calc(17.5vmin + 75px - 52.5%)) rotateZ(${i * (360 / drumSections.length)}deg)`,
+								transform:
+									`translate(-5%, calc(17.5vmin + 75px - 52.5%))
+									rotateZ(${index * (360 / drumSections.length)}deg)`,
 								height: "calc((35vmin + 150px) / 2)",
 								width: "calc(17.5vmin + 75px)",
 								background: item.background,

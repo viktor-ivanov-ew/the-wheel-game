@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Box, CircularProgress } from "@mui/material";
 import { Navigate } from "react-router-dom";
+import { Box, CircularProgress } from "@mui/material";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { firebaseAuth } from "src/firebase";
 import { AppRouteEnum, RouteType } from "src/types";
@@ -12,6 +12,7 @@ export const RouteWrapper: FC<RouteType> = ({
 	element
 }) => {
 	const [user, loading] = useAuthState(firebaseAuth);
+
 	if (loading) return (
 		<Box
 			component="div"

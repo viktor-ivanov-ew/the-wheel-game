@@ -12,6 +12,4 @@ export const useHandleError = (
 			variant: "error"
 		});
 	}, [errorTrigger, errorText]);
-
-
 };

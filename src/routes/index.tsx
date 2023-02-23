@@ -24,10 +24,10 @@ const AppRoutes = () => {
 			}
 		>
 			<Routes>
-				{routes.map((route, i) => (
+				{routes.map((route, index) => (
 					<Route
 						{...route}
-						key={`r_${i}_${route.path}`}
+						key={`r_${index}_${route.path}`}
 						element={
 							route.isAuth ? (
 								<DashboardLayout>

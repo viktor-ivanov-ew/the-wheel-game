@@ -3,7 +3,7 @@ import {
 	PropsWithChildren,
 	useEffect
 } from "react";
-import { CustomFormats, IntlProvider } from "react-intl";
+import { IntlProvider } from "react-intl";
 import dayjs from "dayjs";
 import { MessagesProps } from "./AppIntlProvider.types";
 import messagesEn from "../../i18n/en.json";
