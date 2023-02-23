@@ -8,6 +8,7 @@ import HistoryListItem from "./HistoryListItem/HistoryListItem";
 import { useHandleError } from "src/hooks";
 import { firebaseAuth, firebaseFirestore } from "src/firebase";
 import { getWinModalSubtitle } from "src/components/modal/WinModal/WinModal.utils";
+import { UserHistoryDto } from "src/types";
 import { historyStyles } from "./History.styles";
 
 export const History = () => {
@@ -42,7 +43,7 @@ export const History = () => {
 						</Typography>
 					</Box>
 				)}
-				{(userData as any)?.gameHistory?.reverse().map((item: any, index: number) => (
+				{(userData as UserHistoryDto)?.gameHistory?.reverse().map((item, index) => (
 					<Fragment key={index}>
 						<HistoryListItem
 							multiplier={item.multiplier}
