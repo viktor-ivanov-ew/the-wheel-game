@@ -4,8 +4,6 @@ import { wheelStyles } from "./Wheel.styles";
 import { drumSections } from "./Wheel.utils";
 import { WheelProps } from "./Wheel.types";
 
-
-
 export const Wheel: FC<WheelProps> = ({
 	spinLength
 }) => {

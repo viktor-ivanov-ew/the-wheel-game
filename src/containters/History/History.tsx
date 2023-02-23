@@ -32,6 +32,13 @@ export const History = () => {
 			<Box
 				sx={historyStyles.gamesList}
 			>
+				{!userData && (
+					<Box>
+						<Typography>
+							{intl.formatMessage({ id: "historyNoGames" })}
+						</Typography>
+					</Box>
+				)}
 				{(userData as any)?.gameHistory?.reverse().map((item: any, i: number) => (
 					<Fragment key={i}>
 						<HistoryListItem

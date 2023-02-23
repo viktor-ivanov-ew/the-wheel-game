@@ -8,7 +8,7 @@ export const historyListItemStyles = {
 		display: "flex",
 		justifyContent: "space-between",
 		padding: "20px",
-		maxWidth: "380px"
+		borderRadius: "10px"
 	},
 	icon: {
 		height: "50px",
@@ -22,14 +22,37 @@ export const historyListItemStyles = {
 		backgroundImage: `url(${multiplierIcon})`,
 		backgroundPosition: "center",
 		backgroundSize: "100%",
+		backgroundRepeat: "no-repeat",
 		display: "flex",
 		justifyContent: "center",
-		alignItems: "center"
+		alignItems: "center",
+
+	},
+	multiplierText: {
+		fontSize: "calc(.7vmin + 10px)",
+		fontFamily: "Holtwood One SC",
+		fontWeight: "700",
+		background: "linear-gradient(186.8deg, #FCFF81 17.77%, rgba(255, 170, 6, 1) 97.24%)",
+		backgroundClip: "text",
+		textFillColor: "transparent",
+		"WebkitTextStroke": "0.4px #712F00"
 	},
 	textWrapper: {
 		display: "flex",
-		flexDirection: "column",
-		flexWrap: "wrap",
-		height: "50px",
+		flexDirection: "row",
+	},
+	dateText: {
+		fontSize: "calc(1.7vmin + 10px)",
+		fontFamily: "Gluten",
+		color: "#686e78"
+	},
+	title: {
+		fontSize: "calc(1.7vmin + 10px)",
+		fontFamily: "Holtwood One SC",
+		fontWeight: "700",
+		background: "linear-gradient(186.8deg, #FCFF81 17.77%, rgba(255, 170, 6, 1) 97.24%)",
+		backgroundClip: "text",
+		textFillColor: "transparent",
+		"WebkitTextStroke": "1px #712F00"
 	}
 };
