@@ -1,4 +1,5 @@
-import { colors, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
+import background from "../assets/background.jpg";
 
 const theme = createTheme({
 	palette: {
@@ -36,6 +37,24 @@ const theme = createTheme({
 
 
 theme.components = {
+	"MuiCssBaseline": {
+		styleOverrides: {
+			body: {
+				height: "100vh",
+				width: "100vw",
+				minHeight: "100vh",
+				minWidth: "100vw",
+				maxHeight: "100vh",
+				maxWidth: "100vw",
+				background: `url(${background})`,
+				"WebkitFontSmoothing": "antialiased",
+				"MozOsxFontSmoothing": "grayscale",
+			},
+			a: {
+				textDecoration: "none"
+			}
+		}
+	},
 	"MuiButton": {
 		styleOverrides: {
 			contained: {
