@@ -41,10 +41,6 @@ Run `npm run build` to build the template application. The build artifacts will 
 
 Run `npm run lint` to check the lint for all workspace.
 
-Run `npm run lint:all` to check the lint for all applications, libs.
-
-Run `npm run lint:all:fix` to fix the lint errors.
-
 ## ENVIRONMENT VARIABLES LIST
 
 1. `NX_API_KEY` - firebase api key
