@@ -19,7 +19,7 @@ build_dev:
   before_script:
     - npm ci --cache .npm --prefer-offline --force
   script:
-    - npm run run:many
+    - npm run build
   environment:
     name: 'Development'
   artifacts:
@@ -37,11 +37,7 @@ deploy_dev:
     - npm ci --cache .npm --prefer-offline --force
     - npm i -g firebase-tools
   script:
-    - npm run run:many
-    - firebase deploy --only hosting:muiapp --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting:antapp --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting:primeapp --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting:semanticapp --token $FIREBASE_TOKEN
-    - firebase deploy --only hosting:tailwindapp --token $FIREBASE_TOKEN
+    - npm run build
+    - firebase deploy --only hosting --token $FIREBASE_TOKEN
   environment:
     name: 'Development'
