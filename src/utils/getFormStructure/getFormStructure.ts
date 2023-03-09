@@ -1,30 +1,29 @@
-import { IntlShape } from "react-intl";
 
-const email = (intl: IntlShape) => ({
-	label: intl.formatMessage({id: "emailFieldLabel"}),
+const email = {
+	label: "emailFieldLabel",
 	name: "email",
 	id: "email",
 	type: "text",
 	placeholder: "",
-});
+};
 
-const password = (intl: IntlShape) => ({
-	label: intl.formatMessage({id: "passwordFieldLabel"}),
+const password = {
+	label: "passwordFieldLabel",
 	name: "password",
 	id: "password",
 	type: "password",
 	placeholder: "",
-});
+};
 
-const confirmPassword = (intl: IntlShape) => ({
-	...password(intl),
-	label: intl.formatMessage({id: "confirmPasswordFieldLabel"}),
+const confirmPassword = {
+	...password,
+	label: "confirmPasswordFieldLabel",
 	name: "confirmPassword",
-});
+};
 
-export const getFormStructure = (intl: IntlShape) => {
-	const signUpStructure = [email(intl), password(intl), confirmPassword(intl)];
-	const logInStructure = [email(intl), password(intl)];
+export const getFormStructure = () => {
+	const signUpStructure = [email, password, confirmPassword];
+	const logInStructure = [email, password];
 
 	return { signUpStructure, logInStructure };
 };

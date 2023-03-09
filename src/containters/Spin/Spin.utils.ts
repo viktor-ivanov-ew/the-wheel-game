@@ -37,10 +37,12 @@ export const listItems = [
 	},
 ];
 
-export const getListItemOfDrumSection = (deg: number) => {
-	const step = 360 / listItems.length;
-	const partDeg = deg % 360;
+(() => {
+	console.log("a", listItems[0].type);
+})();
 
-	return listItems[(parseInt(((partDeg - (step * .35)) / (1 * step)).toFixed(1)) + 1) % 7];
+export const getListItemOfDrumSection = (index: number) => {
+	console.log("index", index);
+	return listItems[index];
 };
 

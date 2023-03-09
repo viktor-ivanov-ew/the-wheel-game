@@ -1,8 +1,8 @@
+import { BrowserRouter } from "react-router-dom";
 import {
 	CssBaseline,
 	ThemeProvider
 } from "@mui/material";
-import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import ErrorIcon from "@mui/icons-material/Error";
 import { AppIntlProvider } from "src/hocs";

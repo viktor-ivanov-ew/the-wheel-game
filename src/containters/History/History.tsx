@@ -1,22 +1,26 @@
 import { Fragment } from "react";
-import { Box, Typography } from "@mui/material";
 import { useIntl } from "react-intl";
+import { Box, Typography } from "@mui/material";
 import { doc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDocumentData } from "react-firebase-hooks/firestore";
-import { PrizeType } from "src/types";
-import { firebaseAuth, firebaseFirestore } from "src/firebase";
 import HistoryListItem from "./HistoryListItem/HistoryListItem";
-import { historyStyles } from "./History.styles";
+import { useHandleError } from "src/hooks";
+import { firebaseAuth, firebaseFirestore } from "src/firebase";
+import { UserHistoryDto } from "src/types";
 import { getWinModalSubtitle } from "src/components/modal/WinModal/WinModal.utils";
+import { historyStyles } from "./History.styles";
 
 export const History = () => {
 	const intl = useIntl();
-	const [user, loadingUser, errorUser] = useAuthState(firebaseAuth);
 
+	const [user, loadingUser, errorUser] = useAuthState(firebaseAuth);
 	const [userData, loadingUserData, errorUserData] = useDocumentData(
 		doc(firebaseFirestore, "gameHistory", `${user?.uid}` ?? "")
 	);
+
+	useHandleError(!loadingUserData && !!errorUserData, errorUserData?.message);
+	useHandleError(!loadingUser && !!errorUser, errorUser?.message);
 
 	return (
 		<Box
@@ -32,13 +36,22 @@ export const History = () => {
 			<Box
 				sx={historyStyles.gamesList}
 			>
-				{(userData as any)?.gameHistory?.reverse().map((item: any, i: number) => (
-					<Fragment key={i}>
+				{!userData && (
+					<Box>
+						<Typography>
+							{intl.formatMessage({ id: "historyNoGames" })}
+						</Typography>
+					</Box>
+				)}
+				{(userData as UserHistoryDto)?.gameHistory?.reverse().map((item, index) => (
+					<Fragment key={index}>
 						<HistoryListItem
 							multiplier={item.multiplier}
 							prize={item.prize}
 							date={item.time}
-							prizeTitle={getWinModalSubtitle(item.prize, intl, item.multiplier)}
+							prizeTitle={
+								getWinModalSubtitle(item.prize, intl, item.multiplier)
+							}
 						/>
 					</Fragment>
 				))}

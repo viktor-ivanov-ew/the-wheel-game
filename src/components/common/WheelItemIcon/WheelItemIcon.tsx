@@ -1,10 +1,10 @@
 import { FC } from "react";
 import { Box, Typography } from "@mui/material";
+import { getPrizeIcon } from "src/utils";
+import { PrizeType } from "src/types";
 import { wheelItemIconStyles } from "./WheelItemIcon.styles";
 import { WheelItemIconProps } from "./WheelItemIcon.types";
-import { getPrizeIcon } from "src/utils";
 import multiplierImage from "../../../assets/prizeIcons/multiplier.png";
-import { PrizeType } from "src/types";
 
 export const WheelItemIcon: FC<WheelItemIconProps> = ({
 	type,
@@ -33,7 +33,8 @@ export const WheelItemIcon: FC<WheelItemIconProps> = ({
 				sx={[
 					wheelItemIconStyles.icon,
 					type === PrizeType.JACKPOT && {
-						transform: `rotateZ(180deg) translateY(${isModal ? 0 : 50}%) scale(${.5})`
+						transform:
+							`rotateZ(180deg) translateY(${isModal ? 0 : 50}%) scale(${.5})`
 					}
 				]}
 				component="img"

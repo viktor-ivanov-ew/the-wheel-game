@@ -13,11 +13,29 @@ import { loginStyles } from "./Login.styles";
 export const Login = () => {
 	const intl = useIntl();
 
-	const [signInWithEmailAndPassword, , loadingLoginViaEmail, errorLoginViaEmail] = useSignInWithEmailAndPassword(firebaseAuth);
-	const [signInWithGoogle, , loadingLoginViaGoogle, errorLoginViaGoogle] = useSignInWithGoogle(firebaseAuth);
+	const [
+		signInWithEmailAndPassword, ,
+		loadingLoginViaEmail,
+		errorLoginViaEmail
+	] = useSignInWithEmailAndPassword(firebaseAuth);
 
-	useHandleError(!loadingLoginViaEmail && !!errorLoginViaEmail, errorLoginViaEmail?.message);
-	useHandleError(!loadingLoginViaGoogle && !!errorLoginViaGoogle, errorLoginViaGoogle?.message);
+	const [
+		signInWithGoogle, ,
+		loadingLoginViaGoogle,
+		errorLoginViaGoogle
+	] = useSignInWithGoogle(firebaseAuth);
+
+	useHandleError(
+		!loadingLoginViaEmail &&
+		!!errorLoginViaEmail,
+		errorLoginViaEmail?.message
+	);
+
+	useHandleError(
+		!loadingLoginViaGoogle &&
+		!!errorLoginViaGoogle,
+		errorLoginViaGoogle?.message
+	);
 
 	const handleSubmitLoginForm = useCallback(
 		({ email, password }: LoginFormFields) => {
@@ -33,12 +51,13 @@ export const Login = () => {
 		[signInWithGoogle],
 	);
 
-
 	return (
 		<Box
 			sx={loginStyles.root}
 		>
-			<Typography variant="h3">{intl.formatMessage({ id: "loginPageTitle" })}</Typography>
+			<Typography variant="h3">{
+				intl.formatMessage({ id: "loginPageTitle" })
+			}</Typography>
 			<LoginForm onSubmit={handleSubmitLoginForm} />
 			<Button
 				variant="contained"

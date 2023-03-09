@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { useIntl } from "react-intl";
+import dayjs from "dayjs";
 import { Box, Typography, Button, CircularProgress } from "@mui/material";
 import { arrayUnion, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import dayjs from "dayjs";
 import { WinModal } from "src/components";
 import { PrizeType } from "src/types";
 import { firebaseAuth, firebaseFirestore } from "src/firebase";
@@ -11,16 +11,19 @@ import { useHandleError } from "src/hooks";
 import Wheel from "./Wheel/Wheel";
 import { spinStyles } from "./Spin.styles";
 import { getListItemOfDrumSection } from "./Spin.utils";
+import { ModalGiftProps } from "./Spin.types";
 
 export const Spin = () => {
 	const intl = useIntl();
+
 	const [user, loadingUser, errorUser] = useAuthState(firebaseAuth);
+
 	const [newSpin, setNewSpin] = useState(0);
-	const [currentDeg, setCurrentDeg] = useState(0);
+	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isSpinning, setIsSpinning] = useState(false);
 	const [isPrizePublished, setIsPrizePublished] = useState(true);
 	const [isModalOpen, setisModalOpen] = useState(false);
-	const [modalGift, setModalGift] = useState<{ type: PrizeType; multiplier?: number; animationIndex: number } | null>(null);
+	const [modalGift, setModalGift] = useState<ModalGiftProps | null>(null);
 
 	useHandleError(!loadingUser && !!errorUser, errorUser?.message);
 
@@ -58,9 +61,10 @@ export const Spin = () => {
 	const handleSpin = useCallback(
 		() => {
 			setIsPrizePublished(false);
-			const newDeg = 360 * ((Math.random() * 4) + 2) + (360 / 7) * ((Math.random() * 6) + 1);
+			const index = Math.round(Math.random() * 7);
+			const newDeg = (360 * Math.round(((Math.random() * 4) + 2))) + (360 / 7 * index);
 			setNewSpin(newDeg);
-			setCurrentDeg(prev => prev + newDeg);
+			setCurrentIndex(prev => (prev + index) % 7);
 			setIsSpinning(true);
 		},
 		[setNewSpin],
@@ -85,7 +89,7 @@ export const Spin = () => {
 		let timeout: NodeJS.Timeout;
 		if (!isSpinning) return;
 		timeout = setTimeout(() => {
-			const modalGift = getListItemOfDrumSection(currentDeg);
+			const modalGift = getListItemOfDrumSection(currentIndex);
 			setIsSpinning(false);
 			setModalGift(modalGift);
 			handleAddGameHistoryData(modalGift.type, modalGift.multiplier);
@@ -123,7 +127,7 @@ export const Spin = () => {
 						{
 							isPrizePublished ?
 								intl.formatMessage({ id: "spinButtonTitle" }) :
-								<CircularProgress sx={{ maxWidth: "20px", maxHeight: "20px" }} />
+								<CircularProgress sx={spinStyles.spinner} />
 						}
 					</Typography>
 				</Button>

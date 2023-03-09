@@ -22,16 +22,24 @@ export const HistoryListItem: FC<HistoryListItemProps> = ({
 					src={getPrizeIcon(prize)}
 					sx={historyListItemStyles.icon}
 				/>
-				<Typography>{prizeTitle}</Typography>
-				<Typography>{date}</Typography>
+				<Box>
+					<Typography
+						sx={historyListItemStyles.title}
+					>{prizeTitle}</Typography>
+					<Typography
+						sx={historyListItemStyles.dateText}
+					>{date}</Typography>
+				</Box>
 			</Box>
 			{multiplier !== 0 &&
 				<Box
-					sx={[
-						historyListItemStyles.multiplier,
-					]}
+					sx={historyListItemStyles.multiplier}
 				>
-					{`X${multiplier}`}
+					<Typography
+						sx={historyListItemStyles.multiplierText}
+					>
+						{`x${multiplier}`}
+					</Typography>
 				</Box>
 			}
 		</Box>
