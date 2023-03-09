@@ -17,9 +17,9 @@ export const Spin = () => {
 	const intl = useIntl();
 
 	const [user, loadingUser, errorUser] = useAuthState(firebaseAuth);
-	
+
 	const [newSpin, setNewSpin] = useState(0);
-	const [currentDeg, setCurrentDeg] = useState(0);
+	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isSpinning, setIsSpinning] = useState(false);
 	const [isPrizePublished, setIsPrizePublished] = useState(true);
 	const [isModalOpen, setisModalOpen] = useState(false);
@@ -61,9 +61,10 @@ export const Spin = () => {
 	const handleSpin = useCallback(
 		() => {
 			setIsPrizePublished(false);
-			const newDeg = 360 * ((Math.random() * 4) + 2) + (360 / 7) * ((Math.random() * 6) + 1);
+			const index = Math.round(Math.random() * 7);
+			const newDeg = (360 * Math.round(((Math.random() * 4) + 2))) + (360 / 7 * index);
 			setNewSpin(newDeg);
-			setCurrentDeg(prev => prev + newDeg);
+			setCurrentIndex(prev => (prev + index) % 7);
 			setIsSpinning(true);
 		},
 		[setNewSpin],
@@ -88,7 +89,7 @@ export const Spin = () => {
 		let timeout: NodeJS.Timeout;
 		if (!isSpinning) return;
 		timeout = setTimeout(() => {
-			const modalGift = getListItemOfDrumSection(currentDeg);
+			const modalGift = getListItemOfDrumSection(currentIndex);
 			setIsSpinning(false);
 			setModalGift(modalGift);
 			handleAddGameHistoryData(modalGift.type, modalGift.multiplier);

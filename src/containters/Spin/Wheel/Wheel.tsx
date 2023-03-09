@@ -7,7 +7,7 @@ import { WheelProps } from "./Wheel.types";
 export const Wheel: FC<WheelProps> = ({
 	spinLength
 }) => {
-	const [rotationPosition, setRotationPosition] = useState(0);
+	const [rotationPosition, setRotationPosition] = useState(-10);
 
 	useEffect(() => {
 		setRotationPosition(prev => prev + spinLength);

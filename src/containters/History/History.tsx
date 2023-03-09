@@ -7,8 +7,8 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import HistoryListItem from "./HistoryListItem/HistoryListItem";
 import { useHandleError } from "src/hooks";
 import { firebaseAuth, firebaseFirestore } from "src/firebase";
-import { getWinModalSubtitle } from "src/components/modal/WinModal/WinModal.utils";
 import { UserHistoryDto } from "src/types";
+import { getWinModalSubtitle } from "src/components/modal/WinModal/WinModal.utils";
 import { historyStyles } from "./History.styles";
 
 export const History = () => {
