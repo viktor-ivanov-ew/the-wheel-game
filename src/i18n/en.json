@@ -1,0 +1,38 @@
+{
+	"loginFormSubmitButtonText": "Log in",
+	"registerFormSubmitButtonText": "Sign up",
+	"googleLoginButton": "Sign in with Google",
+
+	"emailFieldLabel": "Email",
+	"passwordFieldLabel": "Password",
+	"confirmPasswordFieldLabel": "Confirm Password",
+	"schemaValidEmail": "Must be a valid email",
+	"schemaRequiredEmail": "Email is required",
+	"schemaRequiredPassword": "Password is required",
+	"schemaRequiredConfirmPassword": "Confirm password is required",
+	"schemaMatchConfirmPassword": "Passwords must match",
+
+	"loginPageTitle": "Log in your account",
+	"registerPageTitle": "Create a new account",
+	"registerAccountLink": "Or register new account",
+	"loginAccountLink": "Or log in to your account",
+
+	"headerHistoryLink": "History",
+	"headerSpinLink": "Game",
+	"headerCopyright": "Powered by Extrawest",
+
+	"historyPageTitle": "Game History",
+	"historyNoGames": "Sorry, youve played no games!",
+
+	"spinPageTitle": "Fortune Wheel",
+	"spinButtonTitle": "Spin!",
+
+	"winModalTitle": "Congrats!",
+	"winModalSubminButtonTitle": "Ok",
+
+	"winHealthSubtitle": "You got {amount} free lifes!",
+	"winBoosterSubtitle": "You got {amount} free boosters!",
+	"winDiamondSubtitle": "You got {amount} free diamonds!",
+	"winJackpotSubtitle": "You won jackpot!",
+	"winMoneySubtitle": "You got {amount} money prizes!"
+}

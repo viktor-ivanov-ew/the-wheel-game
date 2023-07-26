@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "lint": "nx lint"
   },
   "private": true,
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
+    "@types/react-lottie": "^1.2.6",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
     "@vitejs/plugin-react": "^3.0.0",
@@ -45,7 +47,22 @@
     "vitest": "^0.25.8"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@fontsource/hind": "^4.5.10",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.8",
+    "dayjs": "^1.11.7",
+    "firebase": "^9.17.1",
+    "formik": "^2.2.9",
+    "notistack": "^2.0.8",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-firebase-hooks": "^5.1.1",
+    "react-intl": "^6.2.8",
+    "react-lottie": "^1.2.3",
+    "react-router-dom": "^6.8.1",
+    "vite-plugin-fonts": "^0.7.0",
+    "yup": "^1.0.0"
   }
 }
